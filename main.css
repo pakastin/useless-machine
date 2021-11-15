@@ -16,7 +16,7 @@ body {
 }
 #robot {
   position: relative;
-  perspective: 4rem;
+  perspective: 3rem;
   left: -4rem;
 }
 #robot-lid {
@@ -68,7 +68,7 @@ body {
   left: -1.5rem;
   top: -.75rem;
   background-color: hsl(0, 80%, 55%);
-  box-shadow: 0 3px 6px -2px rgba(0, 0, 0, .25);
+  box-shadow: 0 3px 6px -2px rgba(0, 0, 0, .5);
   border-radius: .75rem;
 }
 #link {
