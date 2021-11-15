@@ -10,7 +10,7 @@ $toggle.onclick = () => {
     return;
   }
   wait = true;
-  const rnd = Math.round(Math.random() * 2000);
+  const rnd = Math.round(Math.random() * 1000);
   const rnd2 = Math.round(Math.random() * 1000);
   openTip();
   setTimeout(openLid, rnd + 100);
