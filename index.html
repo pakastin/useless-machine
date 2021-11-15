@@ -10,6 +10,7 @@
     <div id="center">
       <div id="scene">
         <div id="toggle">
+          <div id="toggle-area"></div>
           <div id="toggle-bg"></div>
           <div id="toggle-tip"></div>
         </div>
@@ -26,26 +27,22 @@
     const $toggleTip = document.querySelector('#toggle-tip');
 
     const $toggle = document.querySelector('#toggle');
-
-    let times = 0;
+    let wait = false;
 
     $toggle.onclick = () => {
-      if (times++ === 0) {
-        openTip(100);
-        setTimeout(openLid, 400, 200);
-        setTimeout(openArm, 1000, 100);
-        setTimeout(closeTip, 1100, 100);
-        setTimeout(closeArm, 1100, 200);
-        setTimeout(closeLid, 1300, 200);
-      } else {
-        const rnd = Math.random() * 2000;
-        openTip(100);
-        setTimeout(openLid, rnd + 100, 200);
-        setTimeout(openArm, rnd + 200, 100);
-        setTimeout(closeTip, rnd + 300, 100);
-        setTimeout(closeArm, rnd + 400, 200);
-        setTimeout(closeLid, rnd + 500, 200);        
+      if (wait) {
+        return;
       }
+      wait = true;
+      const rnd = Math.random() * 2000;
+      const rnd2 = Math.random() * 1000;
+      openTip(100);
+      setTimeout(openLid, rnd + 100, 200);
+      setTimeout(openArm, rnd + rnd2 + 200, 100);
+      setTimeout(closeTip, rnd + rnd2 + 300, 100);
+      setTimeout(closeArm, rnd + rnd2 + 400, 200);
+      setTimeout(closeLid, rnd + rnd2 + 500, 200);      
+      setTimeout(() => wait = false, rnd + rnd2 + 500);
     }
 
     const openTip = (duration) => $toggleTip.animate([

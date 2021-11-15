@@ -20,11 +20,12 @@ body {
 #robot-lid {
   position: absolute;
   left: 7rem;
-  top: -5rem;
-  width: 10rem;
-  height: 10rem;
+  top: -2.5rem;
+  width: 8rem;
+  height: 5rem;
   background-color: #fff;
   transform-origin: 100% 50%;
+  border-radius: .5rem;
 }
 #robot-arm {
   position: absolute;
@@ -38,11 +39,20 @@ body {
 }
 #toggle {
   position: relative;
-  top: -.75rem;
-  left: -1.5rem;
+  left: 0;
+  top: 0;
+}
+#toggle-area {
+  position: absolute;
+  width: 10rem;
+  height: 10rem;
+  left: -5rem;
+  top: -5rem;
 }
 #toggle-bg {
   position: absolute;
+  top: -.75rem;
+  left: -1.5rem;
   width: 3rem;
   height: 1.5rem;
   background-color: #ccc;
@@ -52,6 +62,8 @@ body {
   position: absolute;
   width: 1.5rem;
   height: 1.5rem;
+  left: -1.5rem;
+  top: -.75rem;
   background-color: hsl(0, 75%, 50%);
   border-radius: .75rem;
 }
