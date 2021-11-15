@@ -1,6 +1,8 @@
+* {
+  user-select: none;
+}
 body {
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
-  user-select: none;
 }
 #center {
   position: absolute;
