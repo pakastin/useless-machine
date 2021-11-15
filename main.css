@@ -1,0 +1,56 @@
+body {
+  user-select: none;
+}
+#center {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#robot {
+  position: relative;
+  perspective: 4rem;
+  left: -4rem;
+}
+#robot-lid {
+  position: absolute;
+  left: 7rem;
+  top: -5rem;
+  width: 10rem;
+  height: 10rem;
+  background-color: #fff;
+  transform-origin: 100% 50%;
+}
+#robot-arm {
+  position: absolute;
+  top: -.5rem;
+  left: 5rem;
+  width: 3rem;
+  height: 1rem;
+  background-color: #000;
+  transform: translate(100%, 0);
+  border-radius: .25rem 0 0 .25rem;
+}
+#toggle {
+  position: relative;
+  top: -.75rem;
+  left: -1.5rem;
+}
+#toggle-bg {
+  position: absolute;
+  width: 3rem;
+  height: 1.5rem;
+  background-color: #ccc;
+  border-radius: .75rem;
+}
+#toggle-tip {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: hsl(0, 75%, 50%);
+  border-radius: .75rem;
+}

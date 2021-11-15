@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Useless machine</title>
+  </head>
+  <body>
+    <div id="center">
+      <div id="scene">
+        <div id="toggle">
+          <div id="toggle-bg"></div>
+          <div id="toggle-tip"></div>
+        </div>
+        <div id="robot">
+          <div id="robot-arm"></div>
+          <div id="robot-lid"></div>
+        </div>
+      </div>
+    </div>
+  <script>
+    const $robotLid = document.querySelector('#robot-lid');
+    const $robotArm = document.querySelector('#robot-arm');
+    const $toggleTip = document.querySelector('#toggle-tip');
+
+    const $toggle = document.querySelector('#toggle');
+
+    let times = 0;
+
+    $toggle.onclick = () => {
+      if (times++ === 0) {
+        openTip(100);
+        setTimeout(openLid, 400, 200);
+        setTimeout(openArm, 1000, 100);
+        setTimeout(closeTip, 1100, 100);
+        setTimeout(closeArm, 1100, 200);
+        setTimeout(closeLid, 1300, 200);
+      } else {
+        const rnd = Math.random() * 2000;
+        openTip(100);
+        setTimeout(openLid, rnd + 100, 200);
+        setTimeout(openArm, rnd + 200, 100);
+        setTimeout(closeTip, rnd + 300, 100);
+        setTimeout(closeArm, rnd + 400, 200);
+        setTimeout(closeLid, rnd + 500, 200);        
+      }
+    }
+
+    const openTip = (duration) => $toggleTip.animate([
+      { transform: 'translate(0, 0)', backgroundColor: 'hsl(0deg, 75%, 50%)' }, 
+      { transform: 'translate(100%, 0)', backgroundColor: 'hsl(110deg, 50%, 50%)' }
+    ], { fill: 'both', duration });
+
+    const closeTip = (duration) => $toggleTip.animate([
+      { transform: 'translate(100%, 0)', backgroundColor: 'hsl(110deg, 50%, 50%)' }, 
+      { transform: 'translate(0, 0)', backgroundColor: 'hsl(0deg, 75%, 50%)' }
+    ], { fill: 'both', duration });
+
+    const openLid = (duration) => $robotLid.animate([
+      { backgroundColor: '#fff', transform: 'rotateY(0)' },
+      { backgroundColor: '#ddd', transform: 'rotateY(2deg)' }
+    ], { fill: 'both', duration });
+
+    const closeLid = (duration) => $robotLid.animate([
+      { backgroundColor: '#ddd', transform: 'rotateY(2deg)' },
+      { backgroundColor: '#fff', transform: 'rotateY(0)' }
+    ], { fill: 'both', duration });
+
+    const openArm = (duration) => $robotArm.animate([
+      { transform: 'translate(100%, 0)' },
+      { transform: 'translate(0, 0)' }
+    ], {
+      fill: 'both',
+      duration
+    });
+
+    const closeArm = (duration) => $robotArm.animate([
+      { transform: 'translate(0, 0)' },
+      { transform: 'translate(100%, 0)' }
+    ], {
+      fill: 'both',
+      duration
+    });
+
+    </script>
+  </body>
+</html>
