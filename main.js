@@ -14,9 +14,9 @@ $toggle.onclick = () => {
   const rnd2 = Math.round(Math.random() * 1000);
   openTip();
   setTimeout(openLid, rnd + 100);
-  setTimeout(openArm, rnd + rnd2 + 200, 100);
+  setTimeout(openArm, rnd + rnd2 + 200);
   setTimeout(closeTip, rnd + rnd2 + 300);
-  setTimeout(closeArm, rnd + rnd2 + 400, 200);
+  setTimeout(closeArm, rnd + rnd2 + 400);
   setTimeout(closeLid, rnd + rnd2 + 500);
   setTimeout(() => { wait = false; }, rnd + rnd2 + 500);
 };
