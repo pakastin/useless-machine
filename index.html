@@ -34,8 +34,8 @@
         return;
       }
       wait = true;
-      const rnd = Math.random() * 2000;
-      const rnd2 = Math.random() * 1000;
+      const rnd = Math.round(Math.random() * 2000);
+      const rnd2 = Math.round(Math.random() * 1000);
       openTip(100);
       setTimeout(openLid, rnd + 100, 200);
       setTimeout(openArm, rnd + rnd2 + 200, 100);
