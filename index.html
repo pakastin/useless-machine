@@ -41,18 +41,18 @@
       setTimeout(openArm, rnd + rnd2 + 200, 100);
       setTimeout(closeTip, rnd + rnd2 + 300, 100);
       setTimeout(closeArm, rnd + rnd2 + 400, 200);
-      setTimeout(closeLid, rnd + rnd2 + 500, 200);      
+      setTimeout(closeLid, rnd + rnd2 + 500, 200);
       setTimeout(() => wait = false, rnd + rnd2 + 500);
     }
 
     const openTip = (duration) => $toggleTip.animate([
-      { transform: 'translate(0, 0)', backgroundColor: 'hsl(0deg, 75%, 50%)' }, 
-      { transform: 'translate(100%, 0)', backgroundColor: 'hsl(110deg, 50%, 50%)' }
+      { transform: 'translate(0, 0)', backgroundColor: 'hsl(0deg, 80%, 55%)' }, 
+      { transform: 'translate(100%, 0)', backgroundColor: 'hsl(120deg, 50%, 55%)' }
     ], { fill: 'both', duration });
 
     const closeTip = (duration) => $toggleTip.animate([
-      { transform: 'translate(100%, 0)', backgroundColor: 'hsl(110deg, 50%, 50%)' }, 
-      { transform: 'translate(0, 0)', backgroundColor: 'hsl(0deg, 75%, 50%)' }
+      { transform: 'translate(100%, 0)', backgroundColor: 'hsl(120deg, 50%, 55%)' }, 
+      { transform: 'translate(0, 0)', backgroundColor: 'hsl(0deg, 80%, 55%)' }
     ], { fill: 'both', duration });
 
     const openLid = (duration) => $robotLid.animate([
