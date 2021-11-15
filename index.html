@@ -36,50 +36,38 @@
       wait = true;
       const rnd = Math.round(Math.random() * 2000);
       const rnd2 = Math.round(Math.random() * 1000);
-      openTip(150);
-      setTimeout(openLid, rnd + 100, 200);
+      openTip();
+      setTimeout(openLid, rnd + 100);
       setTimeout(openArm, rnd + rnd2 + 200, 100);
-      setTimeout(closeTip, rnd + rnd2 + 300, 100);
+      setTimeout(closeTip, rnd + rnd2 + 300);
       setTimeout(closeArm, rnd + rnd2 + 400, 200);
-      setTimeout(closeLid, rnd + rnd2 + 500, 200);
+      setTimeout(closeLid, rnd + rnd2 + 500);
       setTimeout(() => wait = false, rnd + rnd2 + 500);
     }
 
-    const openTip = (duration) => $toggleTip.animate([
-      { transform: 'translate(0, 0)', backgroundColor: 'hsl(0deg, 80%, 55%)' }, 
-      { transform: 'translate(100%, 0)', backgroundColor: 'hsl(120deg, 50%, 55%)' }
-    ], { fill: 'both', duration });
+    const openTip = () => {
+      $toggleTip.classList.add('toggled');
+    };
 
-    const closeTip = (duration) => $toggleTip.animate([
-      { transform: 'translate(100%, 0)', backgroundColor: 'hsl(120deg, 50%, 55%)' }, 
-      { transform: 'translate(0, 0)', backgroundColor: 'hsl(0deg, 80%, 55%)' }
-    ], { fill: 'both', duration });
+    const closeTip = () => {
+      $toggleTip.classList.remove('toggled');
+    };
 
-    const openLid = (duration) => $robotLid.animate([
-      { backgroundColor: '#fff', transform: 'rotateY(0)' },
-      { backgroundColor: '#ddd', transform: 'rotateY(2deg)' }
-    ], { fill: 'both', duration });
+    const openLid = () => {
+      $robotLid.classList.add('opened');
+    };
 
-    const closeLid = (duration) => $robotLid.animate([
-      { backgroundColor: '#ddd', transform: 'rotateY(2deg)' },
-      { backgroundColor: '#fff', transform: 'rotateY(0)' }
-    ], { fill: 'both', duration });
+    const closeLid = (duration) => {
+      $robotLid.classList.remove('opened');
+    };
 
-    const openArm = (duration) => $robotArm.animate([
-      { transform: 'translate(100%, 0)' },
-      { transform: 'translate(0, 0)' }
-    ], {
-      fill: 'both',
-      duration
-    });
+    const openArm = (duration) => {
+      $robotArm.classList.add('reached');
+    };
 
-    const closeArm = (duration) => $robotArm.animate([
-      { transform: 'translate(0, 0)' },
-      { transform: 'translate(100%, 0)' }
-    ], {
-      fill: 'both',
-      duration
-    });
+    const closeArm = (duration) => {
+      $robotArm.classList.remove('reached');
+    };
     </script>
   </body>
 </html>
