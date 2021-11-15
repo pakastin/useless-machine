@@ -1,4 +1,5 @@
 body {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
   user-select: none;
 }
 #center {
@@ -53,4 +54,13 @@ body {
   height: 1.5rem;
   background-color: hsl(0, 75%, 50%);
   border-radius: .75rem;
+}
+#link {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: .875rem;
+}
+#link a:not(:hover) {
+  text-decoration: none;
 }
