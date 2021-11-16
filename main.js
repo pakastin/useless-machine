@@ -12,20 +12,20 @@ $toggle.onclick = () => {
   wait = true;
   const rnd = Math.round(Math.random() * 1000);
   const rnd2 = Math.round(Math.random() * 1000);
-  openTip();
+  toggleOn();
   setTimeout(openLid, rnd + 100);
-  setTimeout(openArm, rnd + rnd2 + 200);
-  setTimeout(closeTip, rnd + rnd2 + 300);
-  setTimeout(closeArm, rnd + rnd2 + 400);
+  setTimeout(reachArm, rnd + rnd2 + 200);
+  setTimeout(toggleOff, rnd + rnd2 + 300);
+  setTimeout(retractArm, rnd + rnd2 + 400);
   setTimeout(closeLid, rnd + rnd2 + 500);
   setTimeout(() => { wait = false; }, rnd + rnd2 + 500);
 };
 
-const openTip = () => {
+const toggleOn = () => {
   $toggleTip.classList.add('toggled');
 };
 
-const closeTip = () => {
+const toggleOff = () => {
   $toggleTip.classList.remove('toggled');
 };
 
@@ -37,10 +37,10 @@ const closeLid = (duration) => {
   $robotLid.classList.remove('opened');
 };
 
-const openArm = (duration) => {
+const reachArm = (duration) => {
   $robotArm.classList.add('reached');
 };
 
-const closeArm = (duration) => {
+const retractArm = (duration) => {
   $robotArm.classList.remove('reached');
 };
