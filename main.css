@@ -14,8 +14,11 @@ body {
   align-items: center;
   justify-content: center;
 }
-#robot {
+#scene {
   position: relative;
+}
+#robot {
+  position: absolute;
   perspective: 3rem;
   left: -4rem;
 }
@@ -53,7 +56,7 @@ body {
   transform: translate(0rem, 0);
 }
 #toggle {
-  position: relative;
+  position: absolute;
   left: 0;
   top: 0;
 }
@@ -83,9 +86,9 @@ body {
   background-color: hsl(0, 80%, 55%);
   box-shadow: 0 3px 6px -2px rgba(0, 0, 0, .5);
   border-radius: .75rem;
-  transform: translate(0, 0);
   transition: background-color .1s, transform .2s;
   transition-timing-function: ease-in-out;
+  transform: translate(0, 0);
 }
 #toggle-tip.toggled {
   background-color: hsl(120deg, 50%, 55%);
@@ -99,4 +102,24 @@ body {
 }
 #link a:not(:hover) {
   text-decoration: none;
+}
+#bullets {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.bullet {
+  position: absolute;
+  left: calc(3rem - 0.09375rem);
+  top: -0.09375rem;
+  width: 0.1875rem;
+  height: 0.1875rem;
+  border-radius: 50%;
+  background-color: #000;
+  opacity: 0;
+}
+.bullet.fire {
+  transition: transform .1s;
+  transform: translate(-2.75rem, 0);
+  transition-timing-function: linear;
 }

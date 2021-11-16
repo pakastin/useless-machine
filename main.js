@@ -1,46 +1,83 @@
 const $robotLid = document.querySelector('#robot-lid');
 const $robotArm = document.querySelector('#robot-arm');
 const $toggleTip = document.querySelector('#toggle-tip');
+const $bullets = document.querySelectorAll('.bullet');
 
 const $toggle = document.querySelector('#toggle');
-let wait = false;
+let busy = false;
 
-$toggle.onclick = () => {
-  if (wait) {
+$toggle.onclick = async () => {
+  if (busy) {
     return;
   }
-  wait = true;
-  const rnd = Math.round(Math.random() * 1000);
-  const rnd2 = Math.round(Math.random() * 1000);
+  busy = true;
   toggleOn();
-  setTimeout(openLid, rnd + 100);
-  setTimeout(reachArm, rnd + rnd2 + 200);
-  setTimeout(toggleOff, rnd + rnd2 + 300);
-  setTimeout(retractArm, rnd + rnd2 + 400);
-  setTimeout(closeLid, rnd + rnd2 + 500);
-  setTimeout(() => { wait = false; }, rnd + rnd2 + 500);
+  await wait(Math.round(Math.random() * 1000));
+  await openLid();
+  await wait(Math.round(Math.random() * 1000));
+  if (Math.random() < 0.25) {
+    // just peek first
+    await wait(500);
+    await closeLid();
+    await wait(Math.round(Math.random() * 1000));
+    await openLid();
+  }
+  if (Math.random() < 0.25) {
+    await shoot();
+    await toggleOff();
+  } else {
+    await reachArm();
+    await toggleOff();
+    await retractArm();
+  }
+  await closeLid();
+  busy = false;
 };
 
-const toggleOn = () => {
-  $toggleTip.classList.add('toggled');
-};
+const wait = async (time) => new Promise((resolve) => setTimeout(resolve, time));
 
-const toggleOff = () => {
+const shoot = async () => {
+  $toggleTip.style.transition = 'background-color 1s, transform 1s';
+  $toggleTip.style.transitionTimingFunction = 'linear';
   $toggleTip.classList.remove('toggled');
+  await wait(100);
+  for (const $bullet of $bullets) {
+    $bullet.style.opacity = 1;
+    $bullet.classList.add('fire');
+    await wait(100);
+    $bullet.style.opacity = 0;
+    $bullet.classList.remove('fire');
+  }
+  $toggleTip.style.transition = '';
+  $toggleTip.style.transitionTimingFunction = '';
 };
 
-const openLid = () => {
+const toggleOn = async () => {
+  $toggleTip.classList.add('toggled');
+  await wait(100);
+};
+
+const toggleOff = async () => {
+  $toggleTip.classList.remove('toggled');
+  await wait(100);
+};
+
+const openLid = async () => {
   $robotLid.classList.add('opened');
+  await wait(100);
 };
 
-const closeLid = (duration) => {
+const closeLid = async (duration) => {
   $robotLid.classList.remove('opened');
+  await wait(100);
 };
 
-const reachArm = (duration) => {
+const reachArm = async (duration) => {
   $robotArm.classList.add('reached');
+  await wait(100);
 };
 
-const retractArm = (duration) => {
+const retractArm = async (duration) => {
   $robotArm.classList.remove('reached');
+  await wait(100);
 };
