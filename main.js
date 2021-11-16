@@ -56,7 +56,7 @@ const go = async () => {
 
 document.addEventListener('keydown', go);
 
-$toggle.onclick = $toggle.onmousedown = go;
+$toggle.onclick = $toggle.onmousedown = $toggle.ontouchstart = go;
 
 const wait = async (time) => new Promise((resolve) => setTimeout(resolve, time));
 
