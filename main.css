@@ -67,6 +67,9 @@ body {
 #toggle.move-down {
   transform: translate(0, 3rem);
 }
+#toggle.eat {
+  transform: translate(4.5rem, 0);
+}
 #toggle-area {
   position: absolute;
   width: 10rem;
