@@ -59,6 +59,10 @@ body {
   position: absolute;
   left: 0;
   top: 0;
+  transition: transform .25s;
+}
+#toggle.avoid {
+  transform: translate(0, -3rem);
 }
 #toggle-area {
   position: absolute;

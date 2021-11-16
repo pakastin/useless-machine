@@ -21,11 +21,20 @@ $toggle.onclick = async () => {
     await closeLid();
     await wait(Math.round(Math.random() * 1000));
     await openLid();
+    await wait(Math.round(Math.random() * 1000));
   }
   if (Math.random() < 0.25) {
     await shoot();
     await toggleOff();
   } else {
+    if (Math.random() < 1) {
+      await toggleMove();
+      await reachArm();
+      await wait(100);
+      await retractArm();
+      await wait(Math.round(Math.random() * 1000));
+      await toggleMoveBack();
+    }
     await reachArm();
     await toggleOff();
     await retractArm();
@@ -50,6 +59,16 @@ const shoot = async () => {
   }
   $toggleTip.style.transition = '';
   $toggleTip.style.transitionTimingFunction = '';
+};
+
+const toggleMove = async () => {
+  $toggle.classList.add('avoid');
+  await wait(250);
+};
+
+const toggleMoveBack = async () => {
+  $toggle.classList.remove('avoid');
+  await wait(250);
 };
 
 const toggleOn = async () => {
