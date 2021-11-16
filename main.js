@@ -32,7 +32,7 @@ $toggle.onclick = async () => {
       await reachArm();
       await wait(100);
       await retractArm();
-      await wait(Math.round(Math.random() * 1000));
+      await wait(Math.round(Math.random() * 2000));
       await toggleMoveBack();
     }
     await reachArm();
