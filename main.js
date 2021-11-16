@@ -27,7 +27,7 @@ $toggle.onclick = async () => {
     await shoot();
     await toggleOff();
   } else {
-    if (Math.random() < 1) {
+    if (Math.random() < 0.25) {
       await toggleMove();
       await reachArm();
       await wait(100);
