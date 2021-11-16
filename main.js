@@ -16,14 +16,14 @@ const go = async () => {
   await openLid();
   await wait(Math.round(Math.random() * 1000));
   if (Math.random() < 0.25) {
-    await eat();
-  }
-  if (Math.random() < 0.25) {
     await wait(500 + Math.round(Math.random() * 1000));
     await closeLid();
     await wait(500 + Math.round(Math.random() * 1000));
     await openLid();
     await wait(Math.round(Math.random() * 1000));
+  }
+  if (Math.random() < 0.25) {
+    await eat();
   }
   if (Math.random() < 0.25) {
     await shoot();
